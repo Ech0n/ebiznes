@@ -1,12 +1,7 @@
-
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    # working_dir: /WORKDIR
-    # command: /root/.sdkman/candidates/gradle/current/bin/gradle build && /root/.sdkman/candidates/gradle/current/bin/gradle run
-    # environment:
-    #   - PATH=/root/.sdkman/candidates/gradle/current/bin:$PATH
-    # ports:
-    #   - "8080:8080"
+    image: "matid90/ebiznesdocker:latest"
+    build: .
+    ports:
+      - "8000:8080"
+    command: ["/root/.sdkman/candidates/gradle/current/bin/gradle", "run"]
