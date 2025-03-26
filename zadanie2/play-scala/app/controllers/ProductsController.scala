@@ -8,7 +8,7 @@ import scala.util.Random
 import play.api.libs.json.Reads._
 import play.api.libs.functional.syntax._
 
-case class Product(id:Int, name:String, price : Double)
+case class Product(id:Int, name:String, price : Double, categoryId : Int)
 
 object Product{
 
@@ -16,7 +16,8 @@ object Product{
     def writes(product: Product) = Json.obj(
       "id"  -> product.id,
       "name" -> product.name,
-      "price" -> product.price
+      "price" -> product.price,
+      "categoryId" -> product.categoryId
     )
   }
 
@@ -25,10 +26,11 @@ object Product{
         val id = (json \ "id").asOpt[Int].getOrElse(Random.nextInt(1000)) 
         val name = (json \ "name").asOpt[String]
         val price = (json \ "price").asOpt[Double]
+        val categoryId = (json \ "categoryId").asOpt[Int]
 
-        ( name, price) match {
-          case (Some(n), Some(p)) =>
-            JsSuccess(Product(id, n, p))
+        ( name, price, categoryId) match {
+          case (Some(n), Some(p), Some(c)) =>
+            JsSuccess(Product(id, n, p, c))
           case _ =>
             JsError("Invalid product data")
         }
@@ -39,13 +41,12 @@ object Product{
 @Singleton
 class ProductsController @Inject()(val controllerComponents: ControllerComponents) extends BaseController {
   private var products = List(
-    Product(1, "Laptop", 2500.0),
-    Product(2, "Myszka", 50.0)
+    Product(1, "Laptop", 2500.0, 0),
+    Product(2, "Myszka", 50.0, 1),
+    Product(3, "Kabel usb", 5.0, 1),
+    Product(4, "Zmywarka", 1500.0, 2),
+    Product(5, "Pralka", 2500.0, 2)
   )
-
-  def index() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.index())
-  }
 
   def getAllProducts: Action[AnyContent] = Action {
     val json = Json.toJson(products)
@@ -77,11 +78,11 @@ class ProductsController @Inject()(val controllerComponents: ControllerComponent
       case JsSuccess(newProduct, _) =>
         if(!products.exists(_.id == newProduct.id)){
           products = products :+ newProduct
-          Created(Json.toJson(newProduct)) 
+          Created(Json.toJson(products)) 
         }else
         {
           products = products.map {
-            case product if product.id == newProduct.id => product.copy(name = newProduct.name, price = newProduct.price)
+            case product if product.id == newProduct.id => product.copy(name = newProduct.name, price = newProduct.price, categoryId = newProduct.categoryId)
             case product => product
           }
           Ok(Json.toJson(products))

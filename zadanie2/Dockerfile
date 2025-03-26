@@ -23,11 +23,10 @@ COPY /play-scala /app
 RUN source "/root/.sdkman/bin/sdkman-init.sh" && sbt dist
 
 RUN unzip /app/target/universal/my-play-scala-app-1.0.zip -d /build/
-    # chmod +x /build/bin/*
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 9000 4040
 
-# CMD ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
