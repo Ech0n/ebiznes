@@ -24,8 +24,9 @@ Demo Videos: [/zadanie2](https://github.com/Ech0n/ebiznes/tree/main/demos/scala)
 
 Demo docker + ngrok + endpointy:
 
-https://github.com/Ech0n/ebiznes/blob/556dd502f6da531b6378900b8b0aa0eaa27b22f0/demos/scala/endpointsDemo.mov
+https://github.com/user-attachments/assets/d5c86b8d-a118-4d5f-92f5-a9606eef2bae
 
 Demo cors:
 
-https://github.com/Ech0n/ebiznes/blob/556dd502f6da531b6378900b8b0aa0eaa27b22f0/demos/scala/corsDemo.mov
+https://github.com/user-attachments/assets/50c114f2-624b-4366-ad6d-547a8d10d35b
+
