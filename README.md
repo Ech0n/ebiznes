@@ -1,22 +1,5 @@
 # E-Biznes
 
-## Zadanie 1. (Docker):
-
-- lokalizacja: dockerExercise/
-- obraz: [matid90/ebiznesdocker:latest](https://hub.docker.com/r/matid90/ebiznesdocker)
-
-### wykonane zadania:
-
-- użyto ubuntu 24.04
-- zainstalowano python 3.10
-- zainstalowano jave 8, kotlina i gradle przez sdkman
-- utworzono prosty program helloworld w java z gradle
-- dodano paczke jdbc do dependencji w gradle
-- buildowanie i uruchamianie aplikacji przez "CMD gradle run"
-- dodano prostą konfiguracje docker compose
-
----
-
 **Zadanie 1** Docker
 
 :white_check_mark: 3.5 obraz ubuntu:24.02 z Javą w wersji 8 oraz Kotlinem  
@@ -38,3 +21,11 @@ Kod: [/dockerExerise](https://github.com/Ech0n/ebiznes/tree/main/dockerExercise)
 
 Kod: [/zadanie2](https://github.com/Ech0n/ebiznes/tree/main/zadanie2)  
 Demo Videos: [/zadanie2](https://github.com/Ech0n/ebiznes/tree/main/demos/scala)
+
+Demo docker + ngrok + endpointy:
+
+https://github.com/Ech0n/ebiznes/blob/556dd502f6da531b6378900b8b0aa0eaa27b22f0/demos/scala/endpointsDemo.mov
+
+Demo cors:
+
+https://github.com/Ech0n/ebiznes/blob/556dd502f6da531b6378900b8b0aa0eaa27b22f0/demos/scala/corsDemo.mov
