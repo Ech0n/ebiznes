@@ -22,4 +22,6 @@ Webex
 - `DISCORDBOTID` - id bota na discordzie
 - `DISCORDBOTTOKEN` - token bota
 2. Windows:
+    `./gradlew.bat run`  
+   Linux:
     `./gradlew run`
