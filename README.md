@@ -30,3 +30,13 @@ Demo cors:
 
 https://github.com/user-attachments/assets/50c114f2-624b-4366-ad6d-547a8d10d35b
 
+**ZADANIE 3.** Ktor Discord bot
+
+:white_check_mark: 3.0 Należy stworzyć aplikację kliencką w Kotlinie we frameworku Ktor, która pozwala na przesyłanie wiadomości na platformę Discord  
+:white_check_mark: 3.5 Aplikacja jest w stanie odbierać wiadomości użytkowników z platformy Discord skierowane do aplikacji (bota)  
+:white_check_mark: 4.0 Zwróci listę kategorii na określone żądanie użytkownika  
+:white_check_mark: 4.5 Zwróci listę produktów wg żądanej kategorii  
+:x: 5.0 Aplikacja obsłuży dodatkowo jedną z platform: Slack, Messenger,  
+Webex
+
+Kod: [/kotlinKtorBot](https://github.com/Ech0n/ebiznes/tree/main/kotlinKtorBot)  
