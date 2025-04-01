@@ -40,3 +40,8 @@ https://github.com/user-attachments/assets/50c114f2-624b-4366-ad6d-547a8d10d35b
 Webex
 
 Kod: [/kotlinKtorBot](https://github.com/Ech0n/ebiznes/tree/main/kotlinKtorBot)  
+
+Demo:
+
+https://github.com/user-attachments/assets/c3c2c751-bad9-4db6-8078-bc7a23c816c3
+
