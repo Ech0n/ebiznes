@@ -9,4 +9,4 @@ fi
 
 echo "starting docker container"
 echo "this make take a while..."
-docker run -it -p 8080:8080 --rm -v $(pwd)/app:/app go
+docker run -it -p 8080:8080 --rm -v $(pwd)/app:/app $CONTAINER_NAME
