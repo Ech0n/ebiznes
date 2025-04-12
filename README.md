@@ -45,3 +45,13 @@ Demo:
 
 https://github.com/user-attachments/assets/c3c2c751-bad9-4db6-8078-bc7a23c816c3
 
+
+**ZADANIE 4.** go + echo
+
+:white_check_mark: 3.0 Należy stworzyć aplikację we frameworki echo w j. Go, która będzie miała kontroler Produktów zgodny z CRUD  
+:white_check_mark: 3.5 Należy stworzyć model Produktów wykorzystując gorm oraz wykorzystać model do obsługi produktów (CRUD) w kontrolerze (zamiast listy)   
+:white_check_mark: 4.0 Należy dodać model Koszyka oraz dodać odpowiedni endpoint  
+:white_check_mark: 4.5 Należy stworzyć model kategorii i dodać relację między kategorią, a produktem  
+:white_check_mark: 5.0 pogrupować zapytania w gorm’owe scope'y  
+
+Kod: [/go](https://github.com/Ech0n/ebiznes/tree/main/go)  

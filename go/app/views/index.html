@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Po zadanie 3.</title>
+</head>
+<body>
+    <div>
+
+        <form id="productForm">
+            <h2>Add Product</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+
+            </select>
+            <br>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" required>
+            <br>
+            <button type="submit">Add Product</button>
+        </form>
+        <form id="updateProductForm">
+            <h2>Update Product</h2>
+            <label for="id">ID:</label>
+            <select id="id" name="id" required>
+            </select>
+            <br>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="category">Category:</label>
+            <select id="updateCategory" name="category" required>
+            </select>
+            <br>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" required>
+            <br>
+            <button type="submit">Update Product</button>
+        </form>
+
+        <div id="productListContainer">
+            <h2>Product List</h2>
+            <label for="categoryFilter">Filter by Category:</label>
+            <select id="categoryFilter" name="categoryFilter">
+                <option value="">all</option>
+            </select>
+            <br>
+            <label for="minPrice">Min Price:</label>
+            <input type="number" id="minPrice" name="minPrice" step="100", value=0>
+            <label for="maxPrice">Max Price:</label>
+            <input type="number" id="maxPrice" name="maxPrice" step="100", value=0>
+            <button id="priceFilterButton">Filter by Price</button>
+            <ul id="productList">
+            </ul>
+        </div>
+        <div id="categories">
+            <h2>Categoryies</h2>
+            <ul id="categoriesList">
+            </ul>
+            <div id="addCategoryFormContainer">
+                <h2>Add New Category</h2>
+                <form id="addCategoryForm">
+                    <label for="categoryName">Category Name:</label>
+                    <input type="text" id="categoryName" name="categoryName" required>
+                    <br>
+                    <button type="submit">Add Category</button>
+                </form>
+            </div>
+        </div>
+        <div id="cart">
+            <h2>Cart</h2>
+            <ul id="cartList">
+            </ul>
+        </div>
+    </div>
+
+        <script>
+        var categories = []
+        var products = []
+        var cart = []
+        function populateUpdateForm() {
+            const idSelect = document.getElementById('id');
+            const categorySelect = document.getElementById('updateCategory');
+
+            idSelect.innerHTML = '';
+            categorySelect.innerHTML = '';
+
+            products.forEach(product => {
+                const option = document.createElement('option');
+                option.value = product.ID;
+                option.textContent = `${product.ID} - ${product.Name}`;
+                idSelect.appendChild(option);
+            });
+
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category.ID;
+                option.textContent = category.Name;
+                categorySelect.appendChild(option);
+            });
+
+            fillUpdateForm(products[0]);
+        }
+        function fillUpdateForm(selectedProduct){
+            document.querySelector('#updateProductForm #name').value = selectedProduct.Name;
+            document.querySelector('#updateProductForm #updateCategory').value = selectedProduct.CategoryID;
+            document.querySelector('#updateProductForm #price').value = selectedProduct.Price;
+        }
+        document.getElementById('id').addEventListener('change', (event) => {
+            const selectedId = event.target.value;
+            const selectedProduct = products.find(product => product.ID == selectedId);
+
+            if (selectedProduct) {
+                fillUpdateForm(selectedProduct);
+            }
+        });
+        async function fetchProducts(category = "all", minPrice = null, maxPrice = null) {
+
+            let url = `${window.location.origin}/products`;
+            if (category !== "all" && category !== "") {
+                url += `?category=${category}`;
+                if (minPrice) {
+                    url += `&min=${minPrice}`;
+                }
+                if (maxPrice && maxPrice > 0) {
+                    url += `&max=${maxPrice}`;
+                }
+            }else{
+
+                if (minPrice) {
+                    url += `?min=${minPrice}`;
+                }
+                if (maxPrice && maxPrice > 0) {
+                    url += `&max=${maxPrice}`;
+                }
+            }
+            console.log(url)
+            try {
+                console.log("start fetching products");
+                const response = await fetch(url, { method: 'GET' });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                products = await response.json();
+                console.log("end fetching products");
+
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+    async function fetchCategories() {
+                console.log("start fetching categories");
+
+        const url = `${window.location.origin}/categories`;
+        try {
+            const response = await fetch(url, { method: 'GET' });
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            categories = await response.json();
+            const categorySelect = document.getElementById('category');
+
+            categories.forEach(category => {
+                console.log(category);
+                const option = document.createElement('option');
+                option.value = category.ID;
+                option.textContent = category.Name;
+                categorySelect.appendChild(option);
+            });
+            console.log("end fetching categories");
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    }
+    function fillProducts(){
+        let listConainer = document.getElementById('productListContainer')
+                let productList = document.getElementById('productList');
+                if (productList) {
+                    productList.remove();
+                }
+                productList = document.createElement('ul');
+                productList.id = 'productList'; 
+                products.forEach(product => {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = `/products/${product.ID}`;
+                    link.textContent = `${product.ID}| Name: ${product.Name}, Price: ${product.Price} zł , Category: ${product.Category.Name}`;
+                    listItem.appendChild(link);
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.addEventListener('click', async () => {
+                        try {
+                            const response = await fetch(`${window.location.origin}/products/${product.ID}`, {
+                                method: 'DELETE'
+                            });
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! status: ${response.status}`);
+                            }
+                            alert('Product deleted successfully!');
+                            listItem.remove();
+                        } catch (error) {
+                            console.error('Error deleting product:', error);
+                            alert('Failed to delete product.');
+                        }
+                    });
+
+                    const addButton = document.createElement('button');
+                    addButton.textContent = 'Add to Cart';
+                    addButton.addEventListener('click', async () => {
+                        try {
+                            const response = await fetch(`${window.location.origin}/cart`, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ ProductID: product.ID, Quantity: 1 })
+                            });
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! status: ${response.status}`);
+                            }
+                            alert('Product added to cart successfully!');
+                            await fetchProducts();
+                            fillProducts();
+                        } catch (error) {
+                            console.error('Error adding product to cart:', error);
+                            alert('Failed to add product to cart.');
+                        }
+                    });
+
+                    listItem.appendChild(deleteButton);
+                    listItem.appendChild(addButton);
+                    listItem.appendChild(deleteButton);
+                    productList.appendChild(listItem);
+                });
+                
+                listConainer.appendChild(productList);
+    }
+    function fillCategories() {
+            let listContainer = document.getElementById('categories');
+            let categoryList = document.getElementById('categoriesList');
+            if (categoryList) {
+                categoryList.remove();
+            }
+            categoryList = document.createElement('ul');
+            categoryList.id = 'categoriesList';
+            const categoryFilter = document.getElementById('categoryFilter');
+            categoryFilter.innerHTML = '<option value="">all</option>';
+            
+            categories.forEach(category => {
+                const listItem = document.createElement('li');
+                listItem.textContent = ` ${category.Name}`;
+                categoryList.appendChild(listItem);
+
+                const filterOption = document.createElement('option');
+                filterOption.value = category.ID;
+                filterOption.textContent = category.Name;
+                categoryFilter.appendChild(filterOption);
+            });
+
+            listContainer.appendChild(categoryList);
+
+        }
+
+    async function fetchCart() {
+            console.log("Fetching cart items...");
+            const url = `${window.location.origin}/cart`;
+            try {
+                const response = await fetch(url, { method: 'GET' });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                cart = await response.json();
+                console.log("Cart items fetched successfully.");
+            } catch (error) {
+                console.error('Error fetching cart items:', error);
+                alert('Failed to fetch cart items.');
+            }
+        }
+
+    function fillCart() {
+        let listContainer = document.getElementById('cart');
+        let cartList = document.getElementById('cartList');
+        if (cartList) {
+            cartList.remove();
+        }
+        cartList = document.createElement('ul');
+        cartList.id = 'cartList';
+
+        cart.forEach(item => {
+            console.log(item);
+            const listItem = document.createElement('li');
+            listItem.textContent = `Name: ${item.Product.Name}, ${item.Product.Price}zł x ${item.Quantity} = ${item.Product.Price * item.Quantity} zł`;
+            // Button to increase quantity
+            const increaseButton = document.createElement('button');
+            increaseButton.textContent = '+';
+            increaseButton.addEventListener('click', async () => {
+                try {
+                    const response = await fetch(`${window.location.origin}/cart/${item.ID}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ Quantity: item.Quantity + 1 })
+                    });
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    await fetchCart();
+                    fillCart();
+                } catch (error) {
+                    console.error('Error increasing quantity:', error);
+                    alert('Failed to increase quantity.');
+                }
+            });
+
+            // Button to decrease quantity
+            const decreaseButton = document.createElement('button');
+            decreaseButton.textContent = '-';
+            decreaseButton.addEventListener('click', async () => {
+                if (item.Quantity - 1 <= 0) {
+                    // If quantity becomes 0, remove the item
+                    try {
+                        const response = await fetch(`${window.location.origin}/cart/${item.ID}`, {
+                            method: 'DELETE'
+                        });
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        alert('Item removed from cart successfully!');
+                        await fetchCart();
+                        fillCart();
+                    } catch (error) {
+                        console.error('Error removing item from cart:', error);
+                        alert('Failed to remove item from cart.');
+                    }
+                } else {
+                    // Otherwise, decrease the quantity
+                    try {
+                        const response = await fetch(`${window.location.origin}/cart/${item.ID}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ Quantity: item.Quantity - 1 })
+                        });
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        await fetchCart();
+                        fillCart();
+                    } catch (error) {
+                        console.error('Error decreasing quantity:', error);
+                        alert('Failed to decrease quantity.');
+                    }
+                }
+            });
+
+            // Append buttons to the list item
+            listItem.appendChild(increaseButton);
+            listItem.appendChild(decreaseButton);
+            cartList.appendChild(listItem);
+        });
+
+        listContainer.appendChild(cartList);
+    }
+    async function loadData(){
+        console.log("start loading data");
+        await Promise.all([fetchProducts(), fetchCategories(), fetchCart()]);
+        console.log("start fill products");
+        fillProducts()
+        fillCategories()
+        fillCart();
+        console.log("end loading data");
+    }
+    
+    loadData().then(() => populateUpdateForm());
+    document.getElementById('productForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const category = document.getElementById('category').value;
+            const price = document.getElementById('price').value;
+            
+            const productData = {
+                name: name,
+                CategoryID: parseInt(category),
+                price: parseFloat(price)
+            };
+
+            try {
+                const response = await fetch(`${window.location.origin}/products`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(productData)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                alert('Product added successfully!');
+                // document.getElementById('productForm').reset();
+
+            } catch (error) {
+                console.error('Error adding product:', error);
+                alert('Failed to add product.');
+            }
+        });
+    document.getElementById('updateProductForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const id = document.getElementById('id').value;
+        const name = document.querySelector('#updateProductForm #name').value;
+        const category = document.querySelector('#updateProductForm #updateCategory').value;
+        const price = document.querySelector('#updateProductForm #price').value;
+
+        const productData = {
+            name: name,
+            CategoryID: parseInt(category),
+            price: parseFloat(price)
+        };
+
+        try {
+            const response = await fetch(`${window.location.origin}/products/${id}`, {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(productData)
+            });
+
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            alert('Product updated successfully!');
+
+        } catch (error) {
+            console.error('Error updating product:', error);
+            alert('Failed to update product.');
+        }
+      });
+
+    document.getElementById('categoryFilter').addEventListener('change', async (event) => {
+        const selectedCategory = event.target.options[event.target.selectedIndex].text;
+
+        try {
+            fetchProducts(selectedCategory).then(() => {
+                fillProducts();
+            });
+        } catch (error) {
+            console.error('Error fetching filtered products:', error);
+            alert('Failed to fetch products.');
+        }
+    });
+
+     document.getElementById('addCategoryForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const categoryName = document.getElementById('categoryName').value;
+
+            const categoryData = {
+                name: categoryName
+            };
+
+            try {
+                const response = await fetch(`${window.location.origin}/categories`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(categoryData)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                alert('Category added successfully!');
+                document.getElementById('addCategoryForm').reset();
+                await fetchCategories();
+                fillCategories();
+            } catch (error) {
+                console.error('Error adding category:', error);
+                alert('Failed to add category.');
+            }
+        });
+        document.getElementById('priceFilterButton').addEventListener('click', async () => {
+                const minPrice = document.getElementById('minPrice').value;
+                const maxPrice = document.getElementById('maxPrice').value;
+                const category = document.getElementById('categoryFilter').value;
+
+                fetchProducts(category, minPrice, maxPrice)
+                    .then(() => {
+                        fillProducts();
+                    })
+                    .catch(error => {
+                        console.error('Error fetching filtered products:', error);
+                        alert('Failed to fetch products.');
+                    });
+            });
+    </script>
+</body>
+</html>

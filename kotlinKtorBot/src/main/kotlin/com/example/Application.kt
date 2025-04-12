@@ -104,7 +104,6 @@ fun runGatewayLoop(url: String, clientForHttpRequests: HttpClient)   {
                         10 -> {
                             handleHello(ge, session)
                         }
-
                         11 -> {
                             handleHeartbeatACK()
                         }
