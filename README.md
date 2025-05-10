@@ -66,3 +66,25 @@ Kod: [/go](https://github.com/Ech0n/ebiznes/tree/main/go)
 
 
 Kod: [/react](https://github.com/Ech0n/ebiznes/tree/main/react)  
+
+
+**ZADANIE 6.** Testy
+
+:white_check_mark: 3.0 Należy stworzyć 20 przypadków testowych w CypressJS lub Selenium (Kotlin, Python, Java, JS, Go, Scala)  
+:white_check_mark: 3.5 Testy muszą zawierać minimum 50 asercji funkcjonalnych  
+:white_check_mark: 4.0 Należy dodać testy jednostkowe do wybranego wcześniej projektu z minimum 50 asercjami  
+:x: 4.5 Należy dodać testy API pokrywające wszystkie endpointy, każdy z co najmniej jednym scenariuszem negatywnym  
+:x: 5.0 Testy funkcjonalne muszą być uruchamiane na platformie Browserstack (konto z Github Education Pack)  
+
+Kod: [commit z testami](https://github.com/Ech0n/blef/commit/cb650fdf4469316a1daf5b5d1d9617a0c9f1a3b6)
+
+
+**ZADANIE 7.** Sonar
+
+:white_check_mark: 3.0 Należy dodać litera (linter) do kodu aplikacji serwerowej poprzez hooki gita  
+:white_check_mark: 3.5 Należy usunąć wszystkie bugi wykryte przez SonarCloud w kodzie aplikacji serwerowej  
+:white_check_mark: 4.0 Należy usunąć wszystkie zapaszki (code smells) w kodzie aplikacji serwerowej  
+:white_check_mark: 4.5 Należy usunąć wszystkie podatności i błędy bezpieczeństwa w kodzie aplikacji serwerowej  
+:white_check_mark: 5.0 Należy usunąć wszystkie błędy oraz zapaszki w kodzie aplikacji klienckiej i dodać widżety Sonara w pliku README  
+
+Kod: [/EbiznesReactApp](https://github.com/Ech0n/EbiznesReactApp)
