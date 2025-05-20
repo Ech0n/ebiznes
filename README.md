@@ -88,3 +88,16 @@ Kod: [commit z testami](https://github.com/Ech0n/blef/commit/cb650fdf4469316a1da
 :white_check_mark: 5.0 Należy usunąć wszystkie błędy oraz zapaszki w kodzie aplikacji klienckiej i dodać widżety Sonara w pliku README  
 
 Kod: [/EbiznesReactApp](https://github.com/Ech0n/EbiznesReactApp)
+
+**ZADANIE 8.** OAuth
+
+:white_check_mark: 3.0 [Logowanie przez aplikację serwerową (bez Oauth2)](https://github.com/Ech0n/ebiznes/blob/main/oAuth/oAuth-server/controllers/auth.go)
+:white_check_mark: 3.5 [Rejestracja przez aplikację serwerową (bez Oauth2)](https://github.com/Ech0n/ebiznes/blob/main/oAuth/oAuth-server/controllers/auth.go)
+:white_check_mark: 4.0 [Logowanie via Google OAuth2](https://github.com/Ech0n/ebiznes/blob/main/oAuth/oAuth-server/controllers/google.go)
+:white_check_mark: 4.5 [Logowanie via Facebook lub Github OAuth2](https://github.com/Ech0n/ebiznes/blob/main/oAuth/oAuth-server/controllers/github.go)
+:white_check_mark: 5.0 [Zapisywanie danych logowania OAuth2 po stronie serwera](https://github.com/Ech0n/ebiznes/blob/main/oAuth/oAuth-server/db/db.go#L23)
+
+Aby aplikacja działała poprawnie należy dodać do zmiennych środowiskowych lub pliku /oAuth/oAuth-server/.env zmienne: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET
+
+Kod oraz instrukcja uruchomienia w README: [/oAuth](https://github.com/Ech0n/ebiznes/tree/main/oauth)  
+

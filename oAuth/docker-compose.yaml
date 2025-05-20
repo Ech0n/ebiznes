@@ -1,0 +1,12 @@
+services:
+  go-service:
+    build:
+      context: ./oAUth-server
+    ports:
+      - "8080:8080"
+
+  client:
+    build:
+      context: ./oAuth-client
+    ports:
+      - "5173:5173"
