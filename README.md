@@ -91,10 +91,10 @@ Kod: [/EbiznesReactApp](https://github.com/Ech0n/EbiznesReactApp)
 
 **ZADANIE 8.** OAuth
 
-:white_check_mark: 3.0 [Logowanie przez aplikację serwerową (bez Oauth2)](https://github.com/Ech0n/ebiznes/blob/main/oAuth/oAuth-server/controllers/auth.go)
-:white_check_mark: 3.5 [Rejestracja przez aplikację serwerową (bez Oauth2)](https://github.com/Ech0n/ebiznes/blob/main/oAuth/oAuth-server/controllers/auth.go)
-:white_check_mark: 4.0 [Logowanie via Google OAuth2](https://github.com/Ech0n/ebiznes/blob/main/oAuth/oAuth-server/controllers/google.go)
-:white_check_mark: 4.5 [Logowanie via Facebook lub Github OAuth2](https://github.com/Ech0n/ebiznes/blob/main/oAuth/oAuth-server/controllers/github.go)
+:white_check_mark: 3.0 [Logowanie przez aplikację serwerową (bez Oauth2)](https://github.com/Ech0n/ebiznes/blob/main/oAuth/oAuth-server/controllers/auth.go)  
+:white_check_mark: 3.5 [Rejestracja przez aplikację serwerową (bez Oauth2)](https://github.com/Ech0n/ebiznes/blob/main/oAuth/oAuth-server/controllers/auth.go)  
+:white_check_mark: 4.0 [Logowanie via Google OAuth2](https://github.com/Ech0n/ebiznes/blob/main/oAuth/oAuth-server/controllers/google.go)  
+:white_check_mark: 4.5 [Logowanie via Facebook lub Github OAuth2](https://github.com/Ech0n/ebiznes/blob/main/oAuth/oAuth-server/controllers/github.go)  
 :white_check_mark: 5.0 [Zapisywanie danych logowania OAuth2 po stronie serwera](https://github.com/Ech0n/ebiznes/blob/main/oAuth/oAuth-server/db/db.go#L23)
 
 Aby aplikacja działała poprawnie należy dodać do zmiennych środowiskowych lub pliku /oAuth/oAuth-server/.env zmienne: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET
@@ -116,3 +116,7 @@ Stworzyć konto na groq'u który udostępnia darmowe api LLM.
 Należy dodać zmienną środowiskową GROQ_API_KEY=(klucz api do groqa) w pliku /services/chat/.env
 
 #### Uruchamianie: `docker compose up`
+Uruchomiona aplikacja jest dostępna pod adresem: [localhost:8080](http://localhost:8080)
+
+https://github.com/user-attachments/assets/39af2fc1-7efc-40e6-af85-95e1679018ed
+
