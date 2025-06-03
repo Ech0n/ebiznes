@@ -101,3 +101,18 @@ Aby aplikacja działała poprawnie należy dodać do zmiennych środowiskowych l
 
 Kod oraz instrukcja uruchomienia w README: [/oAuth](https://github.com/Ech0n/ebiznes/tree/main/oauth)  
 
+**ZADANIE 9.** ChatGPT
+
+:white_check_mark: 3.0 Należy stworzyć po stronie serwerowej osobny serwis do łączenia z ChatGPT do usługi chat  
+:white_check_mark: 3.5 Należy stworzyć interfejs frontowy dla użytkownika, który komunikuje się z serwisem; odpowiedzi powinny być wysyłane do frontowego interfejsu  
+:white_check_mark: 4.0 Należy stworzyć listę 5 różnych otwarć oraz zamknięć rozmowy  
+:white_check_mark: 4.5 Należy zaimplementować filtrowanie tematów do GPT (np. ograniczenie się jedynie do ubrań oraz samego sklepu)  
+:x: 5.0 Należy zaimplementować filtrowanie odpowiedzi po sentymencie 
+
+Kod: [/gpt](https://github.com/Ech0n/ebiznes/tree/main/gpt)  
+
+#### Przed uruchomieniem: 
+Stworzyć konto na groq'u który udostępnia darmowe api LLM.  
+Należy dodać zmienną środowiskową GROQ_API_KEY=(klucz api do groqa) w pliku /services/chat/.env
+
+#### Uruchamianie: `docker compose up`

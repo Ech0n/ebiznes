@@ -1,0 +1,15 @@
+
+
+<div id="chat-form-wrapper" hx-swap-oob="true">
+    <div id="chat-area">
+        <div class="chat-message">
+            <p><strong>Bot:</strong> {{ response }}</p>
+        </div>
+    </div>
+    
+    <form id="chat-form" hx-post="/send" hx-target="#chat-area" hx-swap="beforeend">
+        <input type="text" name="message" placeholder="Type a message..." class="input-box">
+        <button type="submit">Send</button>
+    </form>
+    <div id="start-chat-area"></div>
+</div>

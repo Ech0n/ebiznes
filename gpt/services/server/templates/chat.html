@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ChatBot</title>
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+
+        <div id="start-chat-area">
+            <button id="start-chat-btn" hx-post="/start-chat" hx-target="#start-chat-area" hx-swap="outerHTML"
+                hx-include="#client-id">Start Chat</button>
+
+        </div>
+
+        <div id="chat-form-wrapper"></div>
+          
+    </div>
+    <script>
+        function generateRandomId() {
+            return Math.floor(Math.random() * 1e12);
+        }
+
+        function getClientId() {
+            let clientId = sessionStorage.getItem("client_id");
+            if (!clientId) {
+                clientId = generateRandomId().toString();
+                sessionStorage.setItem("client_id", clientId);
+            }
+            return clientId;
+        }
+
+        document.body.addEventListener('htmx:configRequest', (event) => {
+            event.detail.headers['X-Client-Id'] = getClientId();
+        });
+    </script>
+</body>
+
+</html>
