@@ -112,7 +112,7 @@ Kod oraz instrukcja uruchomienia w README: [/oAuth](https://github.com/Ech0n/ebi
 Kod: [/gpt](https://github.com/Ech0n/ebiznes/tree/main/gpt)  
 
 #### Przed uruchomieniem: 
-Stworzyć konto na groq'u który udostępnia darmowe api LLM.  
+Stworzyć konto na [groq](https://groq.com/)'u który udostępnia darmowe api LLM.  
 Należy dodać zmienną środowiskową GROQ_API_KEY=(klucz api do groqa) w pliku /services/chat/.env
 
 #### Uruchamianie: `docker compose up`
