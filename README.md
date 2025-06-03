@@ -109,7 +109,7 @@ Kod oraz instrukcja uruchomienia w README: [/oAuth](https://github.com/Ech0n/ebi
 :white_check_mark: 4.5 Należy zaimplementować filtrowanie tematów do GPT (np. ograniczenie się jedynie do ubrań oraz samego sklepu)  
 :x: 5.0 Należy zaimplementować filtrowanie odpowiedzi po sentymencie 
 
-Kod: [/gpt](https://github.com/Ech0n/ebiznes/tree/main/gpt)  
+commit z zadaniem: [/gpt](https://github.com/Ech0n/ebiznes/commit/19a9fba098995729f569898b9e006f9eb9db2af1)  
 
 #### Przed uruchomieniem: 
 Stworzyć konto na [groq](https://groq.com/)'u który udostępnia darmowe api LLM.  
