@@ -129,6 +129,6 @@ https://github.com/user-attachments/assets/39af2fc1-7efc-40e6-af85-95e1679018ed
 :white_check_mark: 4.5 Dodać krok z deploymentem aplikacji serwerowej oraz klienckiej na chmurę  
 :x: 5.0 Dodać uruchomienie regresyjnych testów automatycznych (funkcjonalnych) jako krok w Actions  
 
-[Strona dostępna pod url: https://blef-game-aaf0egamftgyecar.westeurope-01.azurewebsites.net/](https://blef-game-aaf0egamftgyecar.westeurope-01.azurewebsites.net/)
-[projekt dla którego wykonano zadanie](https://github.com/Ech0n/blef/tree/1a69647eaf98a8d06712236d1ee8105e4404f1c6)
-[skrypt z github action](https://github.com/Ech0n/blef/blob/release/.github/workflows/deploy.yml)
+[Strona dostępna pod url: https://blef-game-aaf0egamftgyecar.westeurope-01.azurewebsites.net/](https://blef-game-aaf0egamftgyecar.westeurope-01.azurewebsites.net/)  
+[projekt dla którego wykonano zadanie](https://github.com/Ech0n/blef/tree/1a69647eaf98a8d06712236d1ee8105e4404f1c6)  
+[skrypt z github action](https://github.com/Ech0n/blef/blob/release/.github/workflows/deploy.yml)  
