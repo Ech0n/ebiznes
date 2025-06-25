@@ -120,3 +120,15 @@ Uruchomiona aplikacja jest dostępna pod adresem: [localhost:8080](http://localh
 
 https://github.com/user-attachments/assets/39af2fc1-7efc-40e6-af85-95e1679018ed
 
+
+**ZADANIE 10.** Cloud
+
+:white_check_mark: 3.0 Należy stworzyć odpowiednie instancje po stronie chmury na dockerze  
+:white_check_mark: 3.5 Stworzyć odpowiedni pipeline w Github Actions do budowania aplikacji (np. via fatjar)  
+:white_check_mark: 4.0 Dodać notyfikację mailową o zbudowaniu aplikacji  
+:white_check_mark: 4.5 Dodać krok z deploymentem aplikacji serwerowej oraz klienckiej na chmurę  
+:x: 5.0 Dodać uruchomienie regresyjnych testów automatycznych (funkcjonalnych) jako krok w Actions  
+
+[Strona dostępna pod url: https://blef-game-aaf0egamftgyecar.westeurope-01.azurewebsites.net/](https://blef-game-aaf0egamftgyecar.westeurope-01.azurewebsites.net/)
+[projekt dla którego wykonano zadanie](https://github.com/Ech0n/blef/tree/1a69647eaf98a8d06712236d1ee8105e4404f1c6)
+[skrypt z github action](https://github.com/Ech0n/blef/blob/release/.github/workflows/deploy.yml)
