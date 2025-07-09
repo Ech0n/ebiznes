@@ -78,6 +78,9 @@ Kod: [/react](https://github.com/Ech0n/ebiznes/tree/main/react)
 
 Kod: [commit z testami](https://github.com/Ech0n/blef/commit/cb650fdf4469316a1daf5b5d1d9617a0c9f1a3b6)
 
+edit: Podczas nagrywania demo w celu ułatwienia sprawdzania zadania zoorientowałem się, że kod nie jest w łatwy sposób uruchamialny dockerem:
+[Commit z poprawką](https://github.com/Ech0n/blef/commit/d3a8f5d2ff5468fa1a0d6f25df1401330f98e87b)
+
 
 **ZADANIE 7.** Sonar
 
@@ -99,7 +102,7 @@ Kod: [/EbiznesReactApp](https://github.com/Ech0n/EbiznesReactApp)
 
 Aby aplikacja działała poprawnie należy dodać do zmiennych środowiskowych lub pliku /oAuth/oAuth-server/.env zmienne: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET
 
-Kod oraz instrukcja uruchomienia w README: [/oAuth](https://github.com/Ech0n/ebiznes/tree/main/oauth)  
+Kod oraz instrukcja uruchomienia w README: [/oAuth](https://github.com/Ech0n/ebiznes/tree/main/oAuth)  
 
 **ZADANIE 9.** ChatGPT
 
