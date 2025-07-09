@@ -43,6 +43,7 @@ Kod: [/kotlinKtorBot](https://github.com/Ech0n/ebiznes/tree/main/kotlinKtorBot)
 
 Demo:
 
+
 https://github.com/user-attachments/assets/c3c2c751-bad9-4db6-8078-bc7a23c816c3
 
 
@@ -56,6 +57,10 @@ https://github.com/user-attachments/assets/c3c2c751-bad9-4db6-8078-bc7a23c816c3
 
 Kod: [/go](https://github.com/Ech0n/ebiznes/tree/main/go)  
 
+
+https://github.com/user-attachments/assets/efccebdb-3abb-451d-8b27-0f6f8e1996d6
+
+
 **ZADANIE 5.** Frontend
 
 :white_check_mark: 3.0 W ramach projektu należy stworzyć dwa komponenty: Produkty oraz Płatności; Płatności powinny wysyłać do aplikacji serwerowej dane, a w Produktach powinniśmy pobierać dane o produktach z aplikacji serwerowej;  
@@ -66,6 +71,9 @@ Kod: [/go](https://github.com/Ech0n/ebiznes/tree/main/go)
 
 
 Kod: [/react](https://github.com/Ech0n/ebiznes/tree/main/react)  
+
+
+https://github.com/user-attachments/assets/d8ba06fe-5fe5-4ea5-a0a8-7ad93bc33132
 
 
 **ZADANIE 6.** Testy
@@ -79,7 +87,25 @@ Kod: [/react](https://github.com/Ech0n/ebiznes/tree/main/react)
 Kod: [commit z testami](https://github.com/Ech0n/blef/commit/cb650fdf4469316a1daf5b5d1d9617a0c9f1a3b6)
 
 edit: Podczas nagrywania demo w celu ułatwienia sprawdzania zadania zoorientowałem się, że kod nie jest w łatwy sposób uruchamialny dockerem:
-[Commit z poprawką](https://github.com/Ech0n/blef/commit/d3a8f5d2ff5468fa1a0d6f25df1401330f98e87b)
+[Commit z poprawką](https://github.com/Ech0n/blef/commit/d3a8f5d2ff5468fa1a0d6f25df1401330f98e87b)   
+
+Unit testy:  
+uruchamianie:  
+1. `cd client`  
+2. `npm run test`  
+![blefunittesty](https://github.com/user-attachments/assets/42492e9c-7821-4a98-9323-89ab65c9865f)
+
+
+https://github.com/user-attachments/assets/1113a42d-e7fd-49a4-bcf5-9509357fd7da
+
+
+Testy funkcjonalne:
+uruchamianie:   
+1. `docker compose up`  
+2. w nowej sesji: `cd client && npx cypress open`
+   
+https://github.com/user-attachments/assets/e60ecad7-9cc9-4ed0-8e40-097b88484cc6
+
 
 
 **ZADANIE 7.** Sonar
@@ -103,6 +129,10 @@ Kod: [/EbiznesReactApp](https://github.com/Ech0n/EbiznesReactApp)
 Aby aplikacja działała poprawnie należy dodać do zmiennych środowiskowych lub pliku /oAuth/oAuth-server/.env zmienne: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET
 
 Kod oraz instrukcja uruchomienia w README: [/oAuth](https://github.com/Ech0n/ebiznes/tree/main/oAuth)  
+
+
+https://github.com/user-attachments/assets/8fa2db8f-6ce3-4458-907b-9a859c252297
+
 
 **ZADANIE 9.** ChatGPT
 
